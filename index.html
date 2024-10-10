@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>THREE JS</title>
+</head>
+<body>
+    <!-- <canvas id="canvas"></canvas> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js" integrity="sha512-vnmn/Qqn6aG0POAc9mIGzjq0IybrvxJXYDafNvp9JSnDGxeF3pbkSqLvf+YGd5ku63pT7sa/jxHn7/d0mU8+tA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://threejs.org/examples/jsm/controls/OrbitControls.js"></script>
+    <script src="script.js"></script>
+    <!-- <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        const points = []; // List to store points
+    
+        // Set canvas dimensions to match the window
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    
+        // Event listener for mouse movement
+        window.addEventListener('click', (event) => {
+        const x = event.clientX; // Get the X coordinate of the mouse
+        const y = event.clientY; // Get the Y coordinate of the mouse
+
+        // Add the point to the list
+        points.push({ x: x, y: y });
+
+        // Draw the point on the canvas
+        ctx.fillStyle = 'blue';
+        ctx.beginPath();
+        ctx.arc(x, y, 5, 0, Math.PI * 2); // Draw a small circle at the click position
+        ctx.fill();
+
+        // Log the list of points to the console
+        console.log(points);
+    });
+    
+        // Optional: Resize canvas when window is resized
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script> -->
+</body>
+</html>
