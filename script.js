@@ -50,31 +50,31 @@ scene.add(mMesh);
 
 
 
-const snakeSegments = [];
-const segmentCount = 50;
-const segmentLength = 1;
-const segmentGeometry = new THREE.CylinderGeometry(0.2, 0.2, segmentLength, 8);
-const snakeMaterial = new THREE.MeshBasicMaterial({ color: 'white' });
+// const snakeSegments = [];
+// const segmentCount = 50;
+// const segmentLength = 1;
+// const segmentGeometry = new THREE.CylinderGeometry(0.2, 0.2, segmentLength, 8);
+// const snakeMaterial = new THREE.MeshBasicMaterial({ color: 'white' });
 
-for (let i = 0; i < segmentCount; i++) {
-    const segment = new THREE.Mesh(segmentGeometry, snakeMaterial);
-    segment.position.y = -i * segmentLength;
-    snakeSegments.push(segment);
-    scene.add(segment);
-}
+// for (let i = 0; i < segmentCount; i++) {
+//     const segment = new THREE.Mesh(segmentGeometry, snakeMaterial);
+//     segment.position.y = -i * segmentLength;
+//     snakeSegments.push(segment);
+//     scene.add(segment);
+// }
 
-let direction = new THREE.Vector3(Math.random(), Math.random(), 0).normalize();
-let position = new THREE.Vector3(0, 0, 0);
-let angle = 0; // Initialize angle for curved movement
+// let direction = new THREE.Vector3(Math.random(), Math.random(), 0).normalize();
+// let position = new THREE.Vector3(0, 0, 0);
+// let angle = 0; // Initialize angle for curved movement
 
-// Calculate boundaries based on camera position
-function calculateBoundaries() {
-    const boundaryDistance = camera.position.z; // Distance of the camera from the origin
-    const fov = camera.fov * (Math.PI / 180); // Convert fov to radians
-    const height = 2 * boundaryDistance * Math.tan(fov / 2);
-    const width = height * camera.aspect;
-    return { width, height };
-}
+// // Calculate boundaries based on camera position
+// function calculateBoundaries() {
+//     const boundaryDistance = camera.position.z; // Distance of the camera from the origin
+//     const fov = camera.fov * (Math.PI / 180); // Convert fov to radians
+//     const height = 2 * boundaryDistance * Math.tan(fov / 2);
+//     const width = height * camera.aspect;
+//     return { width, height };
+// }
 
 // console.log(extrudeSettings.depth/2,'extrudeSettings.depth')
 // Center the mesh in the Z-axis
@@ -90,23 +90,23 @@ function animate() {
     // Update controls
     // controls.update();
 
-    // Update the position of the snake with curved movement
-    angle += 0.05; // Increment the angle for curvature
-    position.x = 5 * Math.sin(angle); // X position follows a sine wave
-    position.y = 5 * Math.cos(angle); // Y position follows a cosine wave
+    // // Update the position of the snake with curved movement
+    // angle += 0.05; // Increment the angle for curvature
+    // position.x = 5 * Math.sin(angle); // X position follows a sine wave
+    // position.y = 5 * Math.cos(angle); // Y position follows a cosine wave
 
-    // Move each segment to the previous segment's position
-    for (let i = snakeSegments.length - 1; i > 0; i--) {
-        snakeSegments[i].position.copy(snakeSegments[i - 1].position);
-    }
-    snakeSegments[0].position.copy(position);
+    // // Move each segment to the previous segment's position
+    // for (let i = snakeSegments.length - 1; i > 0; i--) {
+    //     snakeSegments[i].position.copy(snakeSegments[i - 1].position);
+    // }
+    // snakeSegments[0].position.copy(position);
 
-    // Check for boundaries and change direction if needed
-    const { width, height } = calculateBoundaries(); // Recalculate boundaries each frame
-    if (Math.abs(position.x) > width / 2 || Math.abs(position.y) > height / 2) {
-        // If the snake goes outside the boundaries, reverse its direction
-        angle += Math.PI; // Reverse the angle for a smooth curve
-    }
+    // // Check for boundaries and change direction if needed
+    // const { width, height } = calculateBoundaries(); // Recalculate boundaries each frame
+    // if (Math.abs(position.x) > width / 2 || Math.abs(position.y) > height / 2) {
+    //     // If the snake goes outside the boundaries, reverse its direction
+    //     angle += Math.PI; // Reverse the angle for a smooth curve
+    // }
 
 
     // Render the scene
